@@ -68,7 +68,7 @@ You can also interact directly with the API:
 
 | Model | Method | Endpoint | Description |
 | :--- | :--- | :--- | :--- |
-| **Gemini** | `GET` | `/api/mistralai/{message}` | Chat with MistralAI |
+| **MistralAI** | `GET` | `/api/mistralai/{message}` | Chat with MistralAI |
 | **DeepSeek** | `GET` | `/api/deepseek/{message}` | Chat with DeepSeek |
 | **Nvidia** | `GET` | `/api/nvidia/{message}` | Chat with Nvidia Nemotron |
 | **GPT** | `GET` | `/api/gpt/{message}` | Chat with GPT |
