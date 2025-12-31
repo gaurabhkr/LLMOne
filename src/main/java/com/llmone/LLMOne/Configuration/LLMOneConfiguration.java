@@ -23,10 +23,10 @@ public class LLMOneConfiguration {
 		}
 	
 	@Bean
-	@Qualifier("gemini")
-	public OpenAiChatModel geminimodel() {
+	@Qualifier("mistralai")
+	public OpenAiChatModel mistralaimodel() {
 		
-		var options=OpenAiChatOptions.builder().model("google/gemma-3-12b-it:free").build();
+		var options=OpenAiChatOptions.builder().model("mistralai/devstral-2512:free").build();
 		var openai=OpenAiApi.builder().baseUrl(BASE_URL).apiKey(API_KEY).build();
 		
 		return OpenAiChatModel
