@@ -11,7 +11,7 @@
 
 *   **Unified API**: A single REST API to interact with multiple LLM providers.
 *   **Multi-Model Support**: Switch seamlessly between:
-    *   **Google Gemini** (`google/gemma-3-12b-it:free`)
+    *   **MistralAI Devstral** (`mistralai/devstral-2512:free`)
     *   **DeepSeek** (`tngtech/deepseek-r1t2-chimera:free`)
     *   **Nvidia Nemotron** (`nvidia/nemotron-3-nano-30b-a3b:free`)
     *   **GPT** (`openai/gpt-oss-120b`)
@@ -42,7 +42,7 @@
 
     ```properties
     SPRING_AI_OPENAI_API_KEY=your_openrouter_api_key
-    SPRING_AI_OPENAI_BASE_URL=https://openrouter.ai/api/v1
+    SPRING_AI_OPENAI_BASE_URL=https://openrouter.ai/api/
     ```
 
 3.  **Build the Project**
@@ -68,14 +68,14 @@ You can also interact directly with the API:
 
 | Model | Method | Endpoint | Description |
 | :--- | :--- | :--- | :--- |
-| **Gemini** | `GET` | `/api/gemini/{message}` | Chat with Google Gemini |
+| **Gemini** | `GET` | `/api/mistralai/{message}` | Chat with MistralAI |
 | **DeepSeek** | `GET` | `/api/deepseek/{message}` | Chat with DeepSeek |
 | **Nvidia** | `GET` | `/api/nvidia/{message}` | Chat with Nvidia Nemotron |
 | **GPT** | `GET` | `/api/gpt/{message}` | Chat with GPT |
 
 **Example:**
 ```bash
-curl http://localhost:8080/api/gemini/Hello
+curl http://localhost:8080/api/mistralai/Hello
 ```
 
 

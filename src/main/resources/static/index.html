@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -10,41 +11,98 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { 
-            font-family: 'Inter', sans-serif; 
+        * {
+            font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-    
-        .light-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .light-scrollbar::-webkit-scrollbar-track { background: #e5e7eb; border-radius: 3px; }
-        .light-scrollbar::-webkit-scrollbar-thumb { background: #9ca3af; border-radius: 3px; }
-        .light-scrollbar::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-        
-        .dark-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .dark-scrollbar::-webkit-scrollbar-track { background: #1f2937; border-radius: 3px; }
-        .dark-scrollbar::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
-        .dark-scrollbar::-webkit-scrollbar-thumb:hover { background: #6b7280; }
-        
-        .scrollbar-thin::-webkit-scrollbar { width: 4px; height: 4px; }
-        
+
+        .light-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .light-scrollbar::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 3px;
+        }
+
+        .light-scrollbar::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 3px;
+        }
+
+        .light-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+        .dark-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .dark-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937;
+            border-radius: 3px;
+        }
+
+        .dark-scrollbar::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 3px;
+        }
+
+        .dark-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+
         @keyframes pulse-dot {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
-        .typing-dot { animation: pulse-dot 1.4s infinite; }
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        
+
+        .typing-dot {
+            animation: pulse-dot 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .fade-in { animation: fadeIn 0.3s ease-out; }
-        
+
+        .fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+
         .theme-transition {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-        
+
         @media (max-width: 640px) {
             .mobile-safe-bottom {
                 padding-bottom: env(safe-area-inset-bottom, 16px);
@@ -56,68 +114,122 @@
             background-color: #f9fafb;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239CA3AF' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        
+
         .doodle-bg-dark {
             background-color: #111827;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234B5563' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), 
-            url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366F1' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234B5563' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366F1' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         /* Loading animation */
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         @keyframes bounce-loader {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(0.95); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(0.95);
+            }
         }
-        
+
         @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
         }
-        
+
         .loading-spinner {
             animation: spin 1s linear infinite;
         }
-        
+
         .loading-bounce {
             animation: bounce-loader 1s ease-in-out infinite;
         }
-        
+
         .loading-pulse {
             animation: pulse 2s ease-in-out infinite;
         }
-        
+
         .shimmer {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
         }
 
         /* Float animation for doodles */
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
-        
-        .float-1 { animation: float 6s ease-in-out infinite; }
-        .float-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
-        .float-3 { animation: float 7s ease-in-out infinite; animation-delay: -4s; }
+
+        .float-1 {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-2 {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: -2s;
+        }
+
+        .float-3 {
+            animation: float 7s ease-in-out infinite;
+            animation-delay: -4s;
+        }
 
         /* AI Model Icon Bounce Animation */
         @keyframes bounce-icon {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-6px); }
-            50% { transform: translateY(0); }
-            75% { transform: translateY(-3px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-6px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(-3px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
 
         .model-icon-wrapper {
@@ -192,7 +304,7 @@
             height: 28px;
             color: #ffffff;
         }
-        
+
         @media (min-width: 640px) {
             .header-logo-wrapper svg {
                 width: 32px;
@@ -204,30 +316,53 @@
         .message-content p {
             margin-bottom: 0.75rem;
         }
+
         .message-content p:last-child {
             margin-bottom: 0;
         }
-        .message-content ul, .message-content ol {
+
+        .message-content ul,
+        .message-content ol {
             margin: 0.75rem 0;
             padding-left: 1.5rem;
         }
+
         .message-content ul {
             list-style-type: disc;
         }
+
         .message-content ol {
             list-style-type: decimal;
         }
+
         .message-content li {
             margin-bottom: 0.25rem;
         }
-        .message-content h1, .message-content h2, .message-content h3, .message-content h4 {
+
+        .message-content h1,
+        .message-content h2,
+        .message-content h3,
+        .message-content h4 {
             font-weight: 600;
             margin: 1rem 0 0.5rem 0;
         }
-        .message-content h1 { font-size: 1.5rem; }
-        .message-content h2 { font-size: 1.25rem; }
-        .message-content h3 { font-size: 1.125rem; }
-        .message-content h4 { font-size: 1rem; }
+
+        .message-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .message-content h2 {
+            font-size: 1.25rem;
+        }
+
+        .message-content h3 {
+            font-size: 1.125rem;
+        }
+
+        .message-content h4 {
+            font-size: 1rem;
+        }
+
         .message-content pre {
             background: #1f2937;
             border-radius: 0.5rem;
@@ -235,17 +370,20 @@
             overflow-x: auto;
             margin: 0.75rem 0;
         }
+
         .message-content code {
             font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
             font-size: 0.875rem;
             color: #e5e7eb;
         }
-        .message-content :not(pre) > code {
+
+        .message-content :not(pre)>code {
             background: rgba(99, 102, 241, 0.2);
             padding: 0.125rem 0.375rem;
             border-radius: 0.25rem;
             color: inherit;
         }
+
         .message-content blockquote {
             border-left: 4px solid #6366f1;
             padding-left: 1rem;
@@ -253,35 +391,46 @@
             font-style: italic;
             opacity: 0.9;
         }
+
         .message-content a {
             color: #60a5fa;
             text-decoration: underline;
         }
+
         .message-content a:hover {
             color: #93c5fd;
         }
+
         .message-content table {
             width: 100%;
             border-collapse: collapse;
             margin: 0.75rem 0;
         }
-        .message-content th, .message-content td {
+
+        .message-content th,
+        .message-content td {
             border: 1px solid #4b5563;
             padding: 0.5rem;
             text-align: left;
         }
+
         .message-content th {
             background: rgba(99, 102, 241, 0.2);
             font-weight: 600;
         }
-        .message-content strong, .message-content b {
+
+        .message-content strong,
+        .message-content b {
             font-weight: 600;
         }
-        .message-content em, .message-content i {
+
+        .message-content em,
+        .message-content i {
             font-style: italic;
         }
     </style>
 </head>
+
 <body class="min-h-screen">
     <div id="root"></div>
 
@@ -298,36 +447,36 @@
         // Mistral AI Logo
         const MistralLogo = ({ className }) => (
             <svg className={className} viewBox="0 0 256 233" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#000000" d="M186.182 0h46.545v46.545h-46.545z"/>
-                <path fill="#F7D046" d="M209.455 0H256v46.545h-46.545z"/>
-                <path fill="#000000" d="M0 0h46.545v46.545H0zm0 46.545h46.545V93.09H0zm0 46.546h46.545v46.545H0zm0 46.545h46.545v46.545H0zm0 46.546h46.545v46.545H0z"/>
-                <path fill="#F7D046" d="M23.273 0h46.545v46.545H23.273z"/>
-                <path fill="#F2A73B" d="M209.455 46.545H256V93.09h-46.545zm-186.182 0h46.545V93.09H23.273z"/>
-                <path fill="#000000" d="M139.636 46.545h46.545V93.09h-46.545z"/>
-                <path fill="#F2A73B" d="M162.909 46.545h46.545V93.09h-46.545zm-93.091 0h46.545V93.09H69.818z"/>
-                <path fill="#EE792F" d="M116.364 93.091h46.545v46.545h-46.545zm46.545 0h46.545v46.545h-46.545zm-93.091 0h46.545v46.545H69.818z"/>
-                <path fill="#000000" d="M93.091 139.636h46.545v46.545H93.091z"/>
-                <path fill="#EB5829" d="M116.364 139.636h46.545v46.545h-46.545z"/>
-                <path fill="#EE792F" d="M209.455 93.091H256v46.545h-46.545zm-186.182 0h46.545v46.545H23.273z"/>
-                <path fill="#000000" d="M186.182 139.636h46.545v46.545h-46.545z"/>
-                <path fill="#EB5829" d="M209.455 139.636H256v46.545h-46.545z"/>
-                <path fill="#000000" d="M186.182 186.182h46.545v46.545h-46.545z"/>
-                <path fill="#EB5829" d="M23.273 139.636h46.545v46.545H23.273z"/>
-                <path fill="#EA3326" d="M209.455 186.182H256v46.545h-46.545zm-186.182 0h46.545v46.545H23.273z"/>
+                <path fill="#000000" d="M186.182 0h46.545v46.545h-46.545z" />
+                <path fill="#F7D046" d="M209.455 0H256v46.545h-46.545z" />
+                <path fill="#000000" d="M0 0h46.545v46.545H0zm0 46.545h46.545V93.09H0zm0 46.546h46.545v46.545H0zm0 46.545h46.545v46.545H0zm0 46.546h46.545v46.545H0z" />
+                <path fill="#F7D046" d="M23.273 0h46.545v46.545H23.273z" />
+                <path fill="#F2A73B" d="M209.455 46.545H256V93.09h-46.545zm-186.182 0h46.545V93.09H23.273z" />
+                <path fill="#000000" d="M139.636 46.545h46.545V93.09h-46.545z" />
+                <path fill="#F2A73B" d="M162.909 46.545h46.545V93.09h-46.545zm-93.091 0h46.545V93.09H69.818z" />
+                <path fill="#EE792F" d="M116.364 93.091h46.545v46.545h-46.545zm46.545 0h46.545v46.545h-46.545zm-93.091 0h46.545v46.545H69.818z" />
+                <path fill="#000000" d="M93.091 139.636h46.545v46.545H93.091z" />
+                <path fill="#EB5829" d="M116.364 139.636h46.545v46.545h-46.545z" />
+                <path fill="#EE792F" d="M209.455 93.091H256v46.545h-46.545zm-186.182 0h46.545v46.545H23.273z" />
+                <path fill="#000000" d="M186.182 139.636h46.545v46.545h-46.545z" />
+                <path fill="#EB5829" d="M209.455 139.636H256v46.545h-46.545z" />
+                <path fill="#000000" d="M186.182 186.182h46.545v46.545h-46.545z" />
+                <path fill="#EB5829" d="M23.273 139.636h46.545v46.545H23.273z" />
+                <path fill="#EA3326" d="M209.455 186.182H256v46.545h-46.545zm-186.182 0h46.545v46.545H23.273z" />
             </svg>
         );
 
         // NVIDIA Logo
         const NvidiaLogo = ({ className }) => (
             <svg className={className} viewBox="0 0 16 16" fill="currentColor">
-                <path d="M1.635 7.146S3.08 5.012 5.97 4.791v-.774C2.77 4.273 0 6.983 0 6.983s1.57 4.536 5.97 4.952v-.824c-3.23-.406-4.335-3.965-4.335-3.965M5.97 9.475v.753c-2.44-.435-3.118-2.972-3.118-2.972S4.023 5.958 5.97 5.747v.828h-.004c-1.021-.123-1.82.83-1.82.83s.448 1.607 1.824 2.07M6 2l-.03 2.017A7 7 0 0 1 6.252 4c3.637-.123 6.007 2.983 6.007 2.983s-2.722 3.31-5.557 3.31q-.39-.002-.732-.065v.883q.292.039.61.04c2.638 0 4.546-1.348 6.394-2.943.307.246 1.561.842 1.819 1.104-1.757 1.47-5.852 2.657-8.173 2.657a7 7 0 0 1-.65-.034V14H16l.03-12zm-.03 3.747v-.956a6 6 0 0 1 .282-.015c2.616-.082 4.332 2.248 4.332 2.248S8.73 9.598 6.743 9.598c-.286 0-.542-.046-.773-.123v-2.9c1.018.123 1.223.572 1.835 1.593L9.167 7.02s-.994-1.304-2.67-1.304a5 5 0 0 0-.527.031"/>
+                <path d="M1.635 7.146S3.08 5.012 5.97 4.791v-.774C2.77 4.273 0 6.983 0 6.983s1.57 4.536 5.97 4.952v-.824c-3.23-.406-4.335-3.965-4.335-3.965M5.97 9.475v.753c-2.44-.435-3.118-2.972-3.118-2.972S4.023 5.958 5.97 5.747v.828h-.004c-1.021-.123-1.82.83-1.82.83s.448 1.607 1.824 2.07M6 2l-.03 2.017A7 7 0 0 1 6.252 4c3.637-.123 6.007 2.983 6.007 2.983s-2.722 3.31-5.557 3.31q-.39-.002-.732-.065v.883q.292.039.61.04c2.638 0 4.546-1.348 6.394-2.943.307.246 1.561.842 1.819 1.104-1.757 1.47-5.852 2.657-8.173 2.657a7 7 0 0 1-.65-.034V14H16l.03-12zm-.03 3.747v-.956a6 6 0 0 1 .282-.015c2.616-.082 4.332 2.248 4.332 2.248S8.73 9.598 6.743 9.598c-.286 0-.542-.046-.773-.123v-2.9c1.018.123 1.223.572 1.835 1.593L9.167 7.02s-.994-1.304-2.67-1.304a5 5 0 0 0-.527.031" />
             </svg>
         );
 
         // DeepSeek Logo
         const DeepSeekLogo = ({ className }) => (
             <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z"/>
+                <path d="M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z" />
             </svg>
         );
 
@@ -370,9 +519,9 @@
 
         // Model configurations with API endpoints
         const models = [
-            { 
-                id: 'gpt', 
-                name: 'GPT', 
+            {
+                id: 'gpt',
+                name: 'GPT',
                 fullName: 'GPT-OSS-120b',
                 endpoint: 'api/gpt',
                 color: 'from-emerald-500 to-teal-600',
@@ -380,19 +529,19 @@
                 textColor: 'text-emerald-400',
                 IconComponent: OpenAILogo
             },
-            { 
-                id: 'mistral', 
-                name: 'Devstral', 
+            {
+                id: 'mistral',
+                name: 'Devstral',
                 fullName: 'Mistral Ai Devstral-2512',
-                endpoint: 'api/mistral',
+                endpoint: 'api/mistralai',
                 color: 'from-orange-500 to-amber-500',
                 bgColor: 'bg-orange-500/20',
                 textColor: 'text-orange-400',
                 IconComponent: MistralLogo
             },
-            { 
-                id: 'nvidia', 
-                name: 'NVIDIA', 
+            {
+                id: 'nvidia',
+                name: 'NVIDIA',
                 fullName: 'Nvidia Nemotron-3-nano-30b-a3b',
                 endpoint: 'api/nvidia',
                 color: 'from-green-600 to-green-400',
@@ -400,10 +549,10 @@
                 textColor: 'text-green-400',
                 IconComponent: NvidiaLogo
             },
-            { 
-                id: 'deepseek', 
-                name: 'DeepSeek', 
-                fullName: 'Deepseek-r1t2-chimera',
+            {
+                id: 'deepseek',
+                name: 'DeepSeek',
+                fullName: 'Deepseek-r1t2-Chimera',
                 endpoint: 'api/deepseek',
                 color: 'from-indigo-500 to-blue-500',
                 bgColor: 'bg-indigo-500/20',
@@ -420,7 +569,7 @@
                 aria-label="Toggle theme"
             >
                 <div className={`absolute w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center ${isDark ? 'translate-x-7 bg-gray-900' : 'translate-x-0.5 bg-yellow-400'}`}>
-                    {isDark 
+                    {isDark
                         ? <MoonIcon className="w-4 h-4 text-blue-300" />
                         : <SunIcon className="w-4 h-4 text-yellow-600" />
                     }
@@ -438,9 +587,9 @@
                         <div className="absolute inset-0 rounded-2xl shimmer"></div>
                     </div>
                     <div className="flex items-center gap-2">
-                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{animationDelay: '0s'}}></div>
-                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{animationDelay: '0.2s'}}></div>
-                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{animationDelay: '0.4s'}}></div>
+                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{ animationDelay: '0s' }}></div>
+                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{ animationDelay: '0.2s' }}></div>
+                        <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${model.color} loading-bounce`} style={{ animationDelay: '0.4s' }}></div>
                     </div>
                     <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
                         {model.fullName} is thinking...
@@ -453,12 +602,12 @@
         const Message = ({ message, model, isDark }) => {
             const isUser = message.role === 'user';
             const IconComponent = model.IconComponent;
-            
+
             return (
                 <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-3 sm:mb-4`}>
                     <div className={`flex items-start gap-2 sm:gap-3 max-w-[90%] sm:max-w-[85%] md:max-w-[70%] ${isUser ? 'flex-row-reverse' : ''}`}>
                         <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center p-1.5 sm:p-2 avatar-icon-wrapper ${isUser ? 'bg-gradient-to-br from-sky-400 to-blue-500' : `bg-gradient-to-br ${model.color}`}`}>
-                            {isUser 
+                            {isUser
                                 ? <UserIcon className="w-full h-full text-white" />
                                 : <IconComponent className="w-full h-full text-white" />
                             }
@@ -467,7 +616,7 @@
                             {isUser ? (
                                 <p className="text-sm sm:text-base whitespace-pre-wrap break-words leading-relaxed">{message.content}</p>
                             ) : (
-                                <div 
+                                <div
                                     className="text-sm sm:text-base break-words leading-relaxed message-content"
                                     dangerouslySetInnerHTML={{ __html: message.content }}
                                 />
@@ -489,13 +638,12 @@
                         <button
                             key={model.id}
                             onClick={() => onSelectModel(model)}
-                            className={`flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl transition-all duration-300 ${
-                                isSelected
+                            className={`flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl transition-all duration-300 ${isSelected
                                     ? `bg-gradient-to-r ${model.color} text-white shadow-lg scale-105 model-button-selected`
-                                    : isDark 
+                                    : isDark
                                         ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700'
                                         : 'bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 shadow-sm'
-                            }`}
+                                }`}
                         >
                             <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center p-1 model-icon-wrapper ${isSelected ? 'bg-white/20' : `bg-gradient-to-br ${model.color}`}`}>
                                 <IconComponent className="w-full h-full text-white" />
@@ -569,13 +717,13 @@
                 try {
                     const encodedMessage = encodeURIComponent(userMessage.content);
                     const response = await fetch(`${selectedModel.endpoint}/${encodedMessage}`);
-                    
+
                     if (!response.ok) {
                         throw new Error('Failed to get response');
                     }
 
                     const data = await response.text();
-                    
+
                     const assistantMessage = {
                         role: 'assistant',
                         content: data || '<p>Sorry, I could not generate a response.</p>',
@@ -621,19 +769,18 @@
                     <FloatingDoodles isDark={isDark} />
 
                     {/* Header */}
-                    <header className={`sticky top-0 z-20 theme-transition border-b px-4 py-3 sm:px-6 sm:py-4 ${
-                        isDark 
-                            ? 'bg-gray-900/80 border-gray-700' 
+                    <header className={`sticky top-0 z-20 theme-transition border-b px-4 py-3 sm:px-6 sm:py-4 ${isDark
+                            ? 'bg-gray-900/80 border-gray-700'
                             : 'bg-white/80 border-gray-200'
-                    } backdrop-blur-xl`}>
+                        } backdrop-blur-xl`}>
                         <div className="max-w-5xl mx-auto">
                             {/* Top row */}
                             <div className="flex items-center justify-between mb-4">
                                 <div className="flex items-center gap-3">
                                     <a href="#" onClick={(e) => { e.preventDefault(); window.location.reload(); }} className="header-logo-wrapper" aria-label="LLMOne Chat Logo - Click to refresh">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{display: 'block', fill: '#ffffff', width: '100%', height: '100%'}}>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', fill: '#ffffff', width: '100%', height: '100%' }}>
                                             <title>LLMOne Chat</title>
-                                            <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#ffffff"/>
+                                            <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#ffffff" />
                                         </svg>
                                     </a>
                                     <div>
@@ -644,11 +791,10 @@
                                 <div className="flex items-center gap-2 sm:gap-3">
                                     <button
                                         onClick={clearChat}
-                                        className={`p-2 rounded-lg transition-colors ${
-                                            isDark 
-                                                ? 'text-gray-400 hover:text-white hover:bg-gray-700' 
+                                        className={`p-2 rounded-lg transition-colors ${isDark
+                                                ? 'text-gray-400 hover:text-white hover:bg-gray-700'
                                                 : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
-                                        }`}
+                                            }`}
                                         title="Clear chat"
                                     >
                                         <TrashIcon className="w-5 h-5" />
@@ -658,8 +804,8 @@
                             </div>
 
                             {/* Model selector */}
-                            <ModelSelector 
-                                selectedModel={selectedModel} 
+                            <ModelSelector
+                                selectedModel={selectedModel}
                                 onSelectModel={setSelectedModel}
                                 isDark={isDark}
                             />
@@ -685,11 +831,10 @@
                                             <button
                                                 key={prompt}
                                                 onClick={() => setInputValue(prompt)}
-                                                className={`px-4 py-2 rounded-full text-sm transition-all hover:scale-105 ${
-                                                    isDark 
-                                                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700' 
+                                                className={`px-4 py-2 rounded-full text-sm transition-all hover:scale-105 ${isDark
+                                                        ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700'
                                                         : 'bg-white hover:bg-gray-50 text-gray-600 shadow-md border border-gray-200'
-                                                }`}
+                                                    }`}
                                             >
                                                 {prompt}
                                             </button>
@@ -700,8 +845,8 @@
                                 <>
                                     {messages.map((message, index) => (
                                         <div key={index} className="fade-in">
-                                            <Message 
-                                                message={message} 
+                                            <Message
+                                                message={message}
                                                 model={models.find(m => m.id === message.model) || selectedModel}
                                                 isDark={isDark}
                                             />
@@ -719,11 +864,10 @@
                     </main>
 
                     {/* Input */}
-                    <footer className={`sticky bottom-0 z-20 p-4 sm:p-6 theme-transition border-t mobile-safe-bottom ${
-                        isDark 
-                            ? 'bg-gray-900/80 border-gray-700' 
+                    <footer className={`sticky bottom-0 z-20 p-4 sm:p-6 theme-transition border-t mobile-safe-bottom ${isDark
+                            ? 'bg-gray-900/80 border-gray-700'
                             : 'bg-white/80 border-gray-200'
-                    } backdrop-blur-xl`}>
+                        } backdrop-blur-xl`}>
                         <div className="max-w-4xl mx-auto">
                             <div className="flex gap-3 items-end">
                                 <div className="flex-1 relative">
@@ -734,11 +878,10 @@
                                         onKeyPress={handleKeyPress}
                                         placeholder={`Message ${selectedModel.name}...`}
                                         rows={1}
-                                        className={`w-full px-4 py-3 sm:px-5 sm:py-4 rounded-2xl text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none theme-transition ${
-                                            isDark 
-                                                ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400' 
+                                        className={`w-full px-4 py-3 sm:px-5 sm:py-4 rounded-2xl text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none theme-transition ${isDark
+                                                ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400'
                                                 : 'bg-gray-100 border-gray-200 text-gray-900 placeholder-gray-500'
-                                        } border`}
+                                            } border`}
                                         style={{ minHeight: '52px', maxHeight: '150px' }}
                                         disabled={isLoading}
                                     />
@@ -746,15 +889,14 @@
                                 <button
                                     onClick={sendMessage}
                                     disabled={!inputValue.trim() || isLoading}
-                                    className={`p-3 sm:p-4 rounded-2xl transition-all duration-300 flex-shrink-0 ${
-                                        inputValue.trim() && !isLoading
+                                    className={`p-3 sm:p-4 rounded-2xl transition-all duration-300 flex-shrink-0 ${inputValue.trim() && !isLoading
                                             ? `bg-gradient-to-r ${selectedModel.color} text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95`
-                                            : isDark 
+                                            : isDark
                                                 ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                                                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                                    }`}
+                                        }`}
                                 >
-                                    {isLoading 
+                                    {isLoading
                                         ? <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white/30 border-t-white rounded-full loading-spinner"></div>
                                         : <SendIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                                     }
@@ -772,4 +914,5 @@
         ReactDOM.createRoot(document.getElementById('root')).render(<App />);
     </script>
 </body>
+
 </html>
